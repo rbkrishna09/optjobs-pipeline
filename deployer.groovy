@@ -13,7 +13,7 @@ pipeline
 		DEVOPS_DIR = "$WORKSPACE" + "/devopsCode"
 		SKIP_TLS = true
 		DOCKER_IMAGE_PREFIX = "ec2-18-144-27-149.us-west-1.compute.amazonaws.com/optjobs/"
-		DOCKER_FILE_PATH = "$DEVOPS_DIR"+"/docker-files/staging/"+"$APP_NAME"+"Dockerfile"
+		DOCKER_FILE_PATH = "$DEVOPS_DIR"+"/docker-files/staging/"+"$APP_NAME"+"/Dockerfile"
 
 
 	}
@@ -60,7 +60,7 @@ pipeline
 					{
 						dir(DEV_DIR)
 						{
-							registry = "$DOCKER_IMAGE_PREFIX"+"/"+"$APP_NAME"+":"+"$BUILD_NUMBER"
+							registry = "$DOCKER_IMAGE_PREFIX"+"$APP_NAME"+":"+"$BUILD_NUMBER"
 							docker.build registry
 
 						}
