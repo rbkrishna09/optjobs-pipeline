@@ -14,6 +14,9 @@ pipeline
 		SKIP_TLS = true
 		DOCKER_IMAGE_PREFIX = "ec2-18-144-27-149.us-west-1.compute.amazonaws.com/optjobs/"
 		DOCKER_FILE_PATH = "$DEVOPS_DIR"+"/docker-files/staging/"+"$APP_NAME"+"/Dockerfile"
+		DOCKER_REGISTRY = "$DOCKER_IMAGE_PREFIX"+"$APP_NAME"+":"+"$BUILD_NUMBER"
+		BUILT_DOCKER_IMAGE = ''
+
 
 
 	}
@@ -50,7 +53,7 @@ pipeline
 				}
 			}
 		}
-		stage('DOCKER BUILD')
+		stage('DOCKER PROCESSING')
 		{
 			steps
 			{
@@ -60,11 +63,23 @@ pipeline
 					{
 						dir(DEV_DIR)
 						{
-							registry = "$DOCKER_IMAGE_PREFIX"+"$APP_NAME"+":"+"$BUILD_NUMBER"
-							docker.build registry
+							
+							BUILT_DOCKER_IMAGE = docker.build registry
 
 						}
 
+					}
+					stage('IMAGE PUSH')
+					{
+						dir(DEV_DIR)
+						{
+							docker.withRegistry()
+							{
+								BUILT_DOCKER_IMAGE.push()
+
+
+							}
+						}
 					}
 				}
 			}
