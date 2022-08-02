@@ -37,7 +37,7 @@ pipeline
 					{
 						dir(DEV_DIR)
 						{
-							checkout([$class: 'GitSCM', branches: [[name: DEV_BRANCH]], extensions: [], userRemoteConfigs: [[url: DEV_CLONE_URL]]])
+							checkout([$class: 'GitSCM', branches: [[name: DEV_BRANCH]], extensions: [], userRemoteConfigs: [[credentialsId: 'github-user-token', url: DEV_CLONE_URL]]])
 						}
 
 					}
