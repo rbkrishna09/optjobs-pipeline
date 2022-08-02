@@ -7,13 +7,13 @@ pipeline
 		DEV_CLONE_URL = "https://github.com/hyrglobalsource/optjobs.git"
 		DEPLOY_ENV = "staging"
 		DEV_BRANCH = "secrets-keys-integration"
-		APP_NAME = "optjobs"
+		APP_NAME = "optjobs-backend"
 		// variables end
 		DEV_DIR = "$WORKSPACE" + "/devCode"
 		DEVOPS_DIR = "$WORKSPACE" + "/devopsCode"
 		SKIP_TLS = true
 		DOCKER_IMAGE_PREFIX = "ec2-18-144-27-149.us-west-1.compute.amazonaws.com/optjobs/"
-		DOCKER_FILE_PATH = "$DEVOPS_DIR"+"/docker-files/staging/"+"$APP_NAME"+"/Dockerfile"
+		DOCKER_FILE_PATH = "$DEVOPS_DIR"+"/docker-files/staging/"+"$APP_NAME"+"Dockerfile"
 
 
 	}
