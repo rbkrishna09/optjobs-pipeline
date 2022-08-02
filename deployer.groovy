@@ -2,11 +2,12 @@ pipeline
 {
 	environment
 	{
-		DEV_CLONE_URL = ""
+		DEV_CLONE_URL = "git@github.com:hyrglobalsource/optjobs.git"
 		DEV_DIR = "$WORKSPACE" + "/devCode"
 		DEVOPS_DIR = "$WORKSPACE" + "/devopsCode"
 		SKIP_TLS = true
 		DEPLOY_ENV = "staging"
+		DEV_BRANCH = ""
 
 
 	}
@@ -25,7 +26,10 @@ pipeline
 				{
 					stage('CHECKOUT DEV CODE')
 					{
-
+						dir(DEV_DIR)
+						{
+							checkout([$class: 'GitSCM', branches: [[name: DEV_BRANCH]], extensions: [], userRemoteConfigs: [[url: DEV_CLONE_URL]]])
+						}
 
 					}
 				}
