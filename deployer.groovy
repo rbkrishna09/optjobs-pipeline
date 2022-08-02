@@ -8,7 +8,7 @@ pipeline
 		DEVOPS_DIR = "$WORKSPACE" + "/devopsCode"
 		SKIP_TLS = true
 		DEPLOY_ENV = "staging"
-		DEV_BRANCH = "main"
+		DEV_BRANCH = "secrets-keys-integration"
 
 
 	}
@@ -30,13 +30,12 @@ pipeline
 						dir(DEVOPS_DIR)
 						{
 							checkout scm
-							//checkout([$class: 'GitSCM', branches: [[name: DEV_BRANCH]], extensions: [], userRemoteConfigs: [[url: DEV_CLONE_URL]]])
 						}
 
 					}
 					stage('CHECKOUT DEV CODE')
 					{
-						dir(DEVOPS_DIR)
+						dir(DEV_DIR)
 						{
 							checkout([$class: 'GitSCM', branches: [[name: DEV_BRANCH]], extensions: [], userRemoteConfigs: [[url: DEV_CLONE_URL]]])
 						}
