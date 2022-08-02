@@ -1,5 +1,6 @@
 pipeline
 {
+	agent none
 	environment
 	{
 		DEV_CLONE_URL = "git@github.com:hyrglobalsource/optjobs.git"
