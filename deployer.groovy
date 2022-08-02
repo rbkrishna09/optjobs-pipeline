@@ -73,7 +73,7 @@ pipeline
 					{
 						dir(DEV_DIR)
 						{
-							docker.withRegistry()
+							docker.withRegistry('','harbor_creds')
 							{
 								BUILT_DOCKER_IMAGE.push()
 
