@@ -64,7 +64,7 @@ pipeline
 						dir(DEV_DIR)
 						{
 							
-							BUILT_DOCKER_IMAGE = docker.build registry
+							BUILT_DOCKER_IMAGE = docker.build DOCKER_REGISTRY
 
 						}
 
