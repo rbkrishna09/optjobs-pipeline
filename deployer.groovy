@@ -60,7 +60,7 @@ pipeline
 					{
 						dir(DEV_DIR)
 						{
-							registry = "$DOCKER_IMAGE_PREFIX"+/+"$APP_NAME"+":$BUILD_NUMBER"
+							registry = "$DOCKER_IMAGE_PREFIX"+"/"+"$APP_NAME"+":"+"$BUILD_NUMBER"
 							docker.build registry
 
 						}
