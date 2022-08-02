@@ -12,7 +12,7 @@ pipeline
 		DEV_DIR = "$WORKSPACE" + "/devCode"
 		DEVOPS_DIR = "$WORKSPACE" + "/devopsCode"
 		SKIP_TLS = true
-		DOCKER_REGISTRY_PATH = "ec2-18-144-27-149.us-west-1.compute.amazonaws.com"
+		DOCKER_REGISTRY_PATH = "http://ec2-18-144-27-149.us-west-1.compute.amazonaws.com"
 		DOCKER_IMAGE_PREFIX = "ec2-18-144-27-149.us-west-1.compute.amazonaws.com/optjobs/"
 		DOCKER_FILE_PATH = "$DEVOPS_DIR"+"/docker-files/staging/"+"$APP_NAME"+"/Dockerfile"
 		DOCKER_REGISTRY = "$DOCKER_IMAGE_PREFIX"+"$APP_NAME"+":"+"$BUILD_NUMBER"
