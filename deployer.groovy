@@ -19,7 +19,7 @@ pipeline
 		DOCKER_REGISTRY = "$DOCKER_IMAGE_PREFIX"+"$APP_NAME"+":"+"latest-"+"$DEPLOY_ENV"
 		def DEV_CLONE_URL = ""
 		BUILT_DOCKER_IMAGE = ''
-		def APP_PORT = "3001:3001"
+		def APP_PORT = "3001"
 
 
 
