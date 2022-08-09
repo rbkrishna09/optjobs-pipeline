@@ -1,4 +1,7 @@
-[optjobs_frontend]
+[optjobs_frontend_staging]
 54.219.211.254
-[optjobs_backend]
+[optjobs_backend_staging]
 54.241.107.97
+[optjobs_frontend_prod]
+54.219.121.67
+[optjobs_backend_prod]

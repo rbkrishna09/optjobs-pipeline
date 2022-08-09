@@ -42,7 +42,7 @@ pipeline
 						if(APP_NAME == "optjobs_frontend")
 						{
 							DEV_CLONE_URL = "https://github.com/hyrglobalsource/optjobs-ui.git"
-							if ( DEPLOY_ENV == 'staging')
+							if ( DEPLOY_ENV == 'staging' )
 							{
 								APP_PORT = 3001
 							}
@@ -56,6 +56,14 @@ pipeline
 						{
 							DEV_CLONE_URL = "https://github.com/hyrglobalsource/optjobs.git"
 							APP_PORT = 4546
+						}
+						if ( DEPLOY_ENV == 'staging')
+						{
+							deployment_app_name = "${APP_NAME}_staging"
+						}
+						else
+						{
+							deployment_app_name = "${APP_NAME}_prod"
 						}
 
 					}
