@@ -19,7 +19,7 @@ pipeline
 		DOCKER_REGISTRY = "$DOCKER_IMAGE_PREFIX"+"$APP_NAME"+":"+"latest-"+"$DEPLOY_ENV"
 		def DEV_CLONE_URL = ""
 		BUILT_DOCKER_IMAGE = ''
-		def APP_PORT = 3001
+		def APP_PORT = null
 
 
 
@@ -42,10 +42,12 @@ pipeline
 						if(APP_NAME == "optjobs_frontend")
 						{
 							DEV_CLONE_URL = "https://github.com/hyrglobalsource/optjobs-ui.git"
+							APP_PORT = 3001
 						}
 						else if (APP_NAME == "optjobs_backend")
 						{
 							DEV_CLONE_URL = "https://github.com/hyrglobalsource/optjobs.git"
+							APP_PORT = 4546
 						}
 
 					}
