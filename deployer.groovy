@@ -17,6 +17,7 @@ pipeline
 		DOCKER_IMAGE_PREFIX = "ec2-18-144-27-149.us-west-1.compute.amazonaws.com/optjobs/"
 		DOCKER_FILE_PATH = "$DEVOPS_DIR"+"/docker-files/${DEPLOY_ENV}/"+"$APP_NAME"+"/Dockerfile"
 		DOCKER_REGISTRY = "$DOCKER_IMAGE_PREFIX"+"$APP_NAME"+":"+"latest-"+"$DEPLOY_ENV"
+		def DEV_CLONE_URL = ""
 		BUILT_DOCKER_IMAGE = ''
 
 
@@ -35,6 +36,18 @@ pipeline
 			{
 				script
 				{
+					stage('Setup Params')
+					{
+						if(APP_NAME == "optjobs-frontend")
+						{
+							DEV_CLONE_URL = "https://github.com/hyrglobalsource/optjobs-ui.git"
+						}
+						else if (APP_NAME == "optjobs-backend")
+						{
+							DEV_CLONE_URL = "https://github.com/hyrglobalsource/optjobs.git"
+						}
+
+					}
 					stage('CHECKOUT DEVOPS CODE')
 					{
 						dir(DEVOPS_DIR)
