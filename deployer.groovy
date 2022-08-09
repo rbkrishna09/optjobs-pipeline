@@ -4,18 +4,19 @@ pipeline
 	environment
 	{
 		// variables start 
-		DEV_CLONE_URL = "https://github.com/hyrglobalsource/optjobs.git"
+		DEV_CLONE_URL = "https://github.com/hyrglobalsource/optjobs-ui.git"
 		DEPLOY_ENV = "staging"
-		DEV_BRANCH = "secrets-keys-integration"
-		APP_NAME = "optjobs-backend"
+		DEV_BRANCH = "stage"
+		APP_NAME = "optjobs-frontend"
 		// variables end
+
 		DEV_DIR = "$WORKSPACE" + "/devCode"
 		DEVOPS_DIR = "$WORKSPACE" + "/devopsCode"
 		SKIP_TLS = true
 		DOCKER_REGISTRY_PATH = "http://ec2-18-144-27-149.us-west-1.compute.amazonaws.com"
 		DOCKER_IMAGE_PREFIX = "ec2-18-144-27-149.us-west-1.compute.amazonaws.com/optjobs/"
-		DOCKER_FILE_PATH = "$DEVOPS_DIR"+"/docker-files/staging/"+"$APP_NAME"+"/Dockerfile"
-		DOCKER_REGISTRY = "$DOCKER_IMAGE_PREFIX"+"$APP_NAME"+":"+"$BUILD_NUMBER"
+		DOCKER_FILE_PATH = "$DEVOPS_DIR"+"/docker-files/${DEPLOY_ENV}/"+"$APP_NAME"+"/Dockerfile"
+		DOCKER_REGISTRY = "$DOCKER_IMAGE_PREFIX"+"$APP_NAME"+":"+"latest-"+"$DEPLOY_ENV"
 		BUILT_DOCKER_IMAGE = ''
 
 
