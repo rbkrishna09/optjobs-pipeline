@@ -19,6 +19,7 @@ pipeline
 		DOCKER_REGISTRY = "$DOCKER_IMAGE_PREFIX"+"$APP_NAME"+":"+"latest-"+"$DEPLOY_ENV"
 		def DEV_CLONE_URL = ""
 		BUILT_DOCKER_IMAGE = ''
+		def APP_PORT = "3001:3001"
 
 
 
@@ -98,7 +99,7 @@ pipeline
 					}
 					stage('Deploy application')
 					{
-						ansiblePlaybook become: true, credentialsId: 'ubuntu-private', disableHostKeyChecking: true, extras: "-e \"host=$APP_NAME docker_image=$DOCKER_REGISTRY\"", installation: 'ansible-new', inventory: 'inventory', playbook: 'deploy.yaml'
+						ansiblePlaybook become: true, credentialsId: 'ubuntu-private', disableHostKeyChecking: true, extras: "-e \"host=$APP_NAME docker_image=$DOCKER_REGISTRY\" app_name=$APP_NAME app_port=$APP_PORT", installation: 'ansible-new', inventory: 'inventory', playbook: 'deploy.yaml'
 					}
 				}
 			}
