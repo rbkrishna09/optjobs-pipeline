@@ -15,4 +15,4 @@
         name: "app_name"
         image: "{{docker_image}}"
         ports:
-        - "3001:3001"
+        - "{{app_port}}}"
