@@ -10,9 +10,13 @@
     - name: pull an image
       docker_image:
         name: "{{docker_image}}"
+    - name: Stop Existing Container
+      docker_container:
+        name: mycontainer
+        state: stopped
     - name: Create a data container
       docker_container:
-        name: "app_name"
+        name: "{{app_name}}"
         image: "{{docker_image}}"
         ports:
         - "{{app_port}}:{{app_port}}"
