@@ -9,4 +9,4 @@
         msg: Hello we are inside the machine to deploy, pulling from {{docker_image}}
     - name: pull an image
       docker_image:
-        name: {{docker_image}}
+        name: "{{docker_image}}"
