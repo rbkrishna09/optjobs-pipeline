@@ -20,6 +20,7 @@ pipeline
 		def DEV_CLONE_URL = ""
 		BUILT_DOCKER_IMAGE = ''
 		def APP_PORT = null
+		def deployment_app_name = null
 
 
 
@@ -117,7 +118,7 @@ pipeline
 					}
 					stage('Deploy application')
 					{
-						ansiblePlaybook become: true, credentialsId: 'ubuntu-private', disableHostKeyChecking: true, extras: "-e \"host=$APP_NAME docker_image=$DOCKER_REGISTRY app_name=$APP_NAME app_port=$APP_PORT\"", installation: 'ansible-new', inventory: 'inventory', playbook: 'deploy.yaml'
+						ansiblePlaybook become: true, credentialsId: 'ubuntu-private', disableHostKeyChecking: true, extras: "-e \"host=$deployment_app_name docker_image=$DOCKER_REGISTRY app_name=$APP_NAME app_port=$APP_PORT\"", installation: 'ansible-new', inventory: 'inventory', playbook: 'deploy.yaml'
 					}
 				}
 			}
