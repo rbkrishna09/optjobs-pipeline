@@ -38,11 +38,11 @@ pipeline
 				{
 					stage('Setup Params')
 					{
-						if(APP_NAME == "optjobs-frontend")
+						if(APP_NAME == "optjobs_frontend")
 						{
 							DEV_CLONE_URL = "https://github.com/hyrglobalsource/optjobs-ui.git"
 						}
-						else if (APP_NAME == "optjobs-backend")
+						else if (APP_NAME == "optjobs_backend")
 						{
 							DEV_CLONE_URL = "https://github.com/hyrglobalsource/optjobs.git"
 						}
