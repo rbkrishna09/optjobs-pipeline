@@ -4,10 +4,10 @@ pipeline
 	environment
 	{
 		// variables start 
-		DEV_CLONE_URL = "https://github.com/hyrglobalsource/optjobs-ui.git"
-		DEPLOY_ENV = "staging"
-		DEV_BRANCH = "stage"
-		APP_NAME = "optjobs-frontend"
+		// DEV_CLONE_URL = "https://github.com/hyrglobalsource/optjobs-ui.git"
+		// DEPLOY_ENV = "staging"
+		// DEV_BRANCH = "stage"
+		// APP_NAME = "optjobs-frontend"
 		// variables end
 
 		DEV_DIR = "$WORKSPACE" + "/devCode"
