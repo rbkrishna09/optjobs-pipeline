@@ -96,6 +96,10 @@ pipeline
 							}
 						}
 					}
+					stage('Deploy application')
+					{
+						ansiblePlaybook become: true, credentialsId: 'ubuntu-private', disableHostKeyChecking: true, extras: "host=$APP_NAME", installation: 'ansible-new', inventory: 'inventory', playbook: 'deploy.yml'
+					}
 				}
 			}
 			
