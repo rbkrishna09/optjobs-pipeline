@@ -1,9 +1,8 @@
 ---
 
-- name: Network Getting Started First Playbook Extended
-  connection: ansible.netcommon.network_cli
+- name: Pull image to deploy
   gather_facts: false
-  hosts: {{host}}
+  hosts: "{{host}}"
   tasks:
     - name: Print message
       debug:
