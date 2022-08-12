@@ -14,12 +14,10 @@
         ports:
         - "{{app_port}}:{{app_port}}"
         state: stopped
-    - name: Tag and push to local registry
-      docker_image:
-         name: "{{app_name}}"
-         repository: "{{harbor_image_url}}"
-         tag: "{{back_up_tag}}"
-         push: yes
+    - name: Tag old image
+      shell: "docker tag {{docker_image}} {{harbor_image_url}}:{{backup_tag}}"
+    - name: Backup old docker_image
+      shell: "docker push {{harbor_image_url}}:{{backup_tag}}"
     - name: Remove image
       docker_image:
         state: absent
