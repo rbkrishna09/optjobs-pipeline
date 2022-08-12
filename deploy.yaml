@@ -28,5 +28,5 @@
         image: "{{docker_image}}"
         ports:
         - "{{app_port}}:{{app_port}}"
-        state: stopped
+        state: started
         restart: yes
