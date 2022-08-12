@@ -22,6 +22,8 @@ pipeline
 		def APP_PORT = null
 		def deployment_app_name = null
 		def BACKUP_TAG = null
+		def harbor_image_url = "ec2-18-144-27-149.us-west-1.compute.amazonaws.com/optjobs/${APP_NAME}"
+		def current_running_tag = "latest-"+"$DEPLOY_ENV"
 
 
 	}

@@ -16,13 +16,15 @@
         state: stopped
     - name: Tag and push to local registry
       docker_image:
-         name: "{{docker_image}}}"
+         name: "{{image_name}}}"
+         repository: "{{harbor_image_url}}"
          tag: "{{back_up_tag}}"
          push: yes
     - name: Remove image
       docker_image:
         state: absent
-        name: "{{docker_image}}"
+        name: "{{harbor_image_url}}"
+        tag: "{{current_running_tag}}"
     - name: pull an image
       docker_image:
         name: "{{docker_image}}"
