@@ -89,6 +89,8 @@ pipeline
 					{
 						dir(DEV_DIR)
 						{
+							println('Cloning.....')
+							println(DEV_CLONE_URL)
 							checkout([$class: 'GitSCM', branches: [[name: DEV_BRANCH]], extensions: [], userRemoteConfigs: [[credentialsId: 'github-user-token', url: DEV_CLONE_URL]]])
 							sh "cp $DOCKER_FILE_PATH ."
 						}
