@@ -42,14 +42,13 @@ pipeline
 					{
 						// these lines needs to be reopened...
 
-						// if (DEV_BRANCH == "stage"){
-						// 	DEPLOY_ENV = 'staging'
+						if (DEV_BRANCH == "stage"){
+							DEPLOY_ENV = 'staging'
 
-						// }
-						// else if(DEV_BRANCH == "master"){
-						// 	DEPLOY_ENV = 'prod'
-						// }
-						DEPLOY_ENV = 'prod'
+						}
+						else if(DEV_BRANCH == "master"){
+							DEPLOY_ENV = 'prod'
+						}
 						DOCKER_FILE_PATH = "$DEVOPS_DIR"+"/docker-files/${DEPLOY_ENV}/"+"$APP_NAME"+"/Dockerfile"
 						DOCKER_REGISTRY = "$DOCKER_IMAGE_PREFIX"+"$APP_NAME"+":"+"latest-"+"$DEPLOY_ENV"
 						BACKUP_TAG = "${DEPLOY_ENV}-BACKUP"
