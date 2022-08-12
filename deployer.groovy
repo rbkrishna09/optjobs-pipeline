@@ -40,13 +40,16 @@ pipeline
 				{
 					stage('Setup Params')
 					{
-						if (DEV_BRANCH == "stage"){
-							DEPLOY_ENV = 'staging'
+						// these lines needs to be reopened...
 
-						}
-						else if(DEV_BRANCH == "master"){
-							DEPLOY_ENV = 'prod'
-						}
+						// if (DEV_BRANCH == "stage"){
+						// 	DEPLOY_ENV = 'staging'
+
+						// }
+						// else if(DEV_BRANCH == "master"){
+						// 	DEPLOY_ENV = 'prod'
+						// }
+						DEPLOY_ENV = 'prod'
 						DOCKER_FILE_PATH = "$DEVOPS_DIR"+"/docker-files/${DEPLOY_ENV}/"+"$APP_NAME"+"/Dockerfile"
 						DOCKER_REGISTRY = "$DOCKER_IMAGE_PREFIX"+"$APP_NAME"+":"+"latest-"+"$DEPLOY_ENV"
  						if(APP_NAME == "optjobs_frontend")
