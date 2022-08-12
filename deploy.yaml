@@ -7,6 +7,22 @@
     - name: Print message
       debug:
         msg: Hello we are inside the machine to deploy, pulling from {{docker_image}}
+    - name: Stop a data container
+      docker_container:
+        name: "{{app_name}}"
+        image: "{{docker_image}}"
+        ports:
+        - "{{app_port}}:{{app_port}}"
+        state: stopped
+    - name: Tag and push to local registry
+      docker_image:
+         name: "{{docker_image}}}"
+         tag: "{{back-up-tag}}"
+         push: yes
+    - name: Remove image
+      docker_image:
+        state: absent
+        name: "{{docker_image}}"
     - name: pull an image
       docker_image:
         name: "{{docker_image}}"
@@ -16,5 +32,5 @@
         image: "{{docker_image}}"
         ports:
         - "{{app_port}}:{{app_port}}"
-        state: started
+        state: stopped
         restart: yes

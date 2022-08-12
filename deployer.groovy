@@ -21,7 +21,7 @@ pipeline
 		BUILT_DOCKER_IMAGE = ''
 		def APP_PORT = null
 		def deployment_app_name = null
-
+		def BACKUP_TAG = null
 
 
 	}
@@ -52,6 +52,7 @@ pipeline
 						DEPLOY_ENV = 'prod'
 						DOCKER_FILE_PATH = "$DEVOPS_DIR"+"/docker-files/${DEPLOY_ENV}/"+"$APP_NAME"+"/Dockerfile"
 						DOCKER_REGISTRY = "$DOCKER_IMAGE_PREFIX"+"$APP_NAME"+":"+"latest-"+"$DEPLOY_ENV"
+						BACKUP_TAG = "${DEPLOY_ENV}-BACKUP"
  						if(APP_NAME == "optjobs_frontend")
 						{
 							DEV_CLONE_URL = "https://github.com/hyrglobalsource/optjobs-ui.git"
