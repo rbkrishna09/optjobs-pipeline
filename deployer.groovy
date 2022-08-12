@@ -44,7 +44,7 @@ pipeline
 					{
 						// these lines needs to be reopened...
 
-						if (DEV_BRANCH == "stage" || DEV_BRANCH == 'secrets-key-integration'){
+						if (DEV_BRANCH == "stage" || DEV_BRANCH == 'secrets-keys-integration'){
 							DEPLOY_ENV = 'staging'
 
 						}
