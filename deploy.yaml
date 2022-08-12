@@ -19,6 +19,7 @@
         state: absent
         name: "{{harbor_image_url}}"
         tag: "{{current_running_tag}}"
+        force: yes
     - name: pull an image
       docker_image:
         name: "{{docker_image}}"
