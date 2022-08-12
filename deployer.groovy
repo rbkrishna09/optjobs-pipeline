@@ -44,7 +44,7 @@ pipeline
 							DEPLOY_ENV = 'staging'
 
 						}
-						else if(DEV_BRANCH == "main"){
+						else if(DEV_BRANCH == "master"){
 							DEPLOY_ENV = 'prod'
 						}
 						DOCKER_FILE_PATH = "$DEVOPS_DIR"+"/docker-files/${DEPLOY_ENV}/"+"$APP_NAME"+"/Dockerfile"
