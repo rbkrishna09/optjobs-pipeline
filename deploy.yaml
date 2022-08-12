@@ -16,7 +16,6 @@
         state: stopped
     - name: Tag and push to local registry
       docker_image:
-         name: "{{image_name}}}"
          repository: "{{harbor_image_url}}"
          tag: "{{back_up_tag}}"
          push: yes

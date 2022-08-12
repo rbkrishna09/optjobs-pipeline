@@ -134,7 +134,7 @@ pipeline
 					}
 					stage('Deploy application')
 					{
-						ansiblePlaybook become: true, credentialsId: 'ubuntu-private', disableHostKeyChecking: true, extras: "-e \"host=$deployment_app_name back_up_tag=$BACKUP_TAG docker_image=$DOCKER_REGISTRY app_name=$APP_NAME app_port=$APP_PORT\"", installation: 'ansible-new', inventory: 'inventory', playbook: 'deploy.yaml'
+						ansiblePlaybook become: true, credentialsId: 'ubuntu-private', disableHostKeyChecking: true, extras: "-e \"host=$deployment_app_name back_up_tag=$BACKUP_TAG harbor_image_url=$harbor_image_url current_running_tag=$current_running_tag docker_image=$DOCKER_REGISTRY app_name=$APP_NAME app_port=$APP_PORT\"", installation: 'ansible-new', inventory: 'inventory', playbook: 'deploy.yaml'
 					}
 				}
 			}
