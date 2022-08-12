@@ -9,7 +9,7 @@ pipeline
 		// DEV_BRANCH = "stage"
 		// APP_NAME = "optjobs-frontend"
 		// variables end
-
+		DEPLOY_ENV = "staging"
 		DEV_DIR = "$WORKSPACE" + "/devCode"
 		DEVOPS_DIR = "$WORKSPACE" + "/devopsCode"
 		SKIP_TLS = true
@@ -40,7 +40,14 @@ pipeline
 				{
 					stage('Setup Params')
 					{
-						if(APP_NAME == "optjobs_frontend")
+						if (DEV_BRANCH == "stage"){
+							DEPLOY_ENV = 'staging'
+
+						}
+						else if(DEV_BRANCH == "main"){
+							DEPLOY_ENV = 'prod'
+						}
+ 						if(APP_NAME == "optjobs_frontend")
 						{
 							DEV_CLONE_URL = "https://github.com/hyrglobalsource/optjobs-ui.git"
 							if ( DEPLOY_ENV == 'staging' )
@@ -125,5 +132,20 @@ pipeline
 			
 
 		}
+		stage('POST DEPLOYMENT FUNCTIONS'){
+			steps{
+				script{
+					stage('Deployment Communication'){
+						send_deployment_confirmation()
+					}
+				}
+			}
+		}
 	}
+}
+
+
+def send_deployment_confirmation(){
+	println("Pipleine completed...")
+	
 }
