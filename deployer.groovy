@@ -51,7 +51,7 @@ pipeline
 						}
 						DOCKER_FILE_PATH = "$DEVOPS_DIR"+"/docker-files/${DEPLOY_ENV}/"+"$APP_NAME"+"/Dockerfile"
 						DOCKER_REGISTRY = "$DOCKER_IMAGE_PREFIX"+"$APP_NAME"+":"+"latest-"+"$DEPLOY_ENV"
-						BACKUP_TAG = "${DEPLOY_ENV}-BACKUP"
+						BACKUP_TAG = "${DEPLOY_ENV}_BACKUP"
  						if(APP_NAME == "optjobs_frontend")
 						{
 							DEV_CLONE_URL = "https://github.com/hyrglobalsource/optjobs-ui.git"
