@@ -17,7 +17,7 @@
     - name: Tag and push to local registry
       docker_image:
          name: "{{docker_image}}}"
-         tag: "{{back-up-tag}}"
+         tag: "{{back_up_tag}}"
          push: yes
     - name: Remove image
       docker_image:
