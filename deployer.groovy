@@ -44,11 +44,11 @@ pipeline
 					{
 						// these lines needs to be reopened...
 
-						if (DEV_BRANCH == "stage"){
+						if (DEV_BRANCH == "stage" || DEV_BRANCH == 'secrets-key-integration'){
 							DEPLOY_ENV = 'staging'
 
 						}
-						else if(DEV_BRANCH == "master"){
+						else if(DEV_BRANCH == "master" || DEV_BRANCH == 'prod-migration' || DEV_BRANCH == 'master-to-deploy'){
 							DEPLOY_ENV = 'prod'
 						}
 						DOCKER_FILE_PATH = "$DEVOPS_DIR"+"/docker-files/${DEPLOY_ENV}/"+"$APP_NAME"+"/Dockerfile"
