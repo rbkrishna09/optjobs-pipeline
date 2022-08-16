@@ -16,7 +16,6 @@
         state: stopped
     - name: Remove image
       sh: 'docker rmi -f $(docker images -aq)'
-        force: yes
     - name: pull an image
       docker_image:
         name: "{{docker_image}}"
