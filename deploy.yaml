@@ -15,10 +15,7 @@
         - "{{app_port}}:{{app_port}}"
         state: stopped
     - name: Remove image
-      docker_image:
-        state: absent
-        name: "{{harbor_image_url}}"
-        tag: "{{current_running_tag}}"
+      sh: 'docker rmi -f $(docker images -aq)'
         force: yes
     - name: pull an image
       docker_image:
