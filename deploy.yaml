@@ -15,7 +15,7 @@
         - "{{app_port}}:{{app_port}}"
         state: stopped
     - name: Remove image
-      sh: 'docker rmi -f $(docker images -aq)'
+      shell: 'docker rmi -f $(docker images -aq)'
     - name: pull an image
       docker_image:
         name: "{{docker_image}}"
